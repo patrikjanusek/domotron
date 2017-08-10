@@ -1,0 +1,57 @@
+$baseFontSize: 16;
+$modulator: sqrt(1.5);
+
+$rem: 1rem;
+$lineHeight: pow(sqrt(1.5), 2) * $rem;
+
+$minWidth: 320;
+$maxWidth: pow(1.5, 4) * $minWidth;
+
+$breakPoints: (
+    s:  pow(1.5, 0) * $minWidth,
+    m:  pow(1.5, 1) * $minWidth,
+    l:  pow(1.5, 2) * $minWidth,
+   xl:  pow(1.5, 3) * $minWidth,
+);
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Noto Sans";
+  @each $name, $value in $breakPoints {
+    @media screen and (min-width: #{$value}px) {
+      font-size: calc(100vw / #{$value} * #{$baseFontSize});
+    }
+  }
+  @media screen and (min-width: #{$maxWidth}px) {
+    font-size: calc(#{$maxWidth}px / #{map-get($breakPoints, xl)} * #{$baseFontSize});
+  }
+}
+
+p {
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+$typeSizes: (
+  p:  (0, 1, 1, 1),
+  h1: (5, 2, 2, 1),
+  h2: (4, 2, 2, 1),
+  h3: (3, 1.5, 2, 1),
+  h4: (2, 1.5, 2, 1),
+  h5: (1, 1, 2, 1),
+  h6: (0, 1, 2, 1),
+);
+
+@each $name, $value in $typeSizes {
+  #{$name} {
+    font-size: pow($modulator, nth($value, 1)) * $rem;
+    line-height: nth($value, 2) * $lineHeight;
+    margin-top: nth($value, 3) * $lineHeight;
+    margin-bottom: nth($value, 4) * $lineHeight;
+  }
+}

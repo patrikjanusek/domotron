@@ -1,0 +1,98 @@
+header {
+  position: fixed;
+  @include break-point(l, max, height) {
+    position: relative;
+  }
+  display: block;
+  top: 0;
+  height: 3 * $lineHeight;
+  width: 100%;
+  min-width: #{$minWidth}px;
+  padding: $lineHeight;
+  z-index: 10;
+  @include z-depth(0);
+  @include box-sizing(border-box);
+  background-color: $bckgColor1;
+  @include border-style(bottom);
+  @include animation(slideTop, 2s);
+}
+
+nav {
+  display: block;
+  margin: auto;
+  max-width: #{$maxWidth}px;
+  font-size: $rem / $modulator;
+  line-height: $lineHeight;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #FFF;
+  padding: 0 $lineHeight;
+  @include box-sizing(border-box);
+}
+
+.logo {
+  float: left;
+  display: block;
+  @media screen and (max-width: #{map-get($breakPoints, xl)}px) {
+    float: none;
+    margin: auto;
+    text-align: center;
+  }
+
+  a {
+    opacity: 0.70;
+
+    &:focus,
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &:active {
+      opacity: 1;
+    }
+
+    img {
+      height: $rem;
+      margin-top: $rem / 4;
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+  float: right;
+  margin: 0;
+  @media screen and (max-width: #{map-get($breakPoints, xl)}px) {
+    display: none;
+  }
+
+  li {
+    display: inline-block;
+    height: $lineHeight;
+    padding: 0 $lineHeight / 2 0 $lineHeight / 2;
+    @media screen and (max-width: #{map-get($breakPoints, xl)}px) {
+      display: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.70);
+
+      &:focus,
+      &:hover {
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      &:active {
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+}
+
+#menuTitle {
+  font-weight: bold !important;
+  @media screen and (max-width: #{map-get($breakPoints, xl)}px) {
+    display: inline-block;
+  }
+}

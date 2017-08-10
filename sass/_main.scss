@@ -1,0 +1,156 @@
+main {
+  position: relative;
+  margin: 0;
+  min-height: 320px;
+  padding: 3 * $lineHeight 0 5 * $lineHeight 0;
+  @include break-point(l, max, height) {
+    padding-top: $lineHeight;
+  }
+  @include box-sizing(border-box);
+}
+
+article {
+  padding: 0 2 * $lineHeight 0 2 * $lineHeight;
+  color: #fff;
+  max-width: #{$maxWidth}px;
+  margin: auto;
+  @include box-sizing(border-box);
+  @include animation(fadein, 2s);
+  text-align: left;
+  @include break-point(l) {
+    padding: 0 1.5 * $lineHeight 0 1.5 * $lineHeight;
+  }
+
+  .title {
+    text-align: center;
+    @include break-point(l, max) {
+       @include paragraph-style(h3);
+    }
+  }
+
+  .tagline {
+    font-style: italic;
+    text-align: center;
+    text-transform: none;
+    @include break-point(l, max) {
+       @include paragraph-style(h4);
+    }
+  }
+}
+
+#aboveFold {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 6 * #{$lineHeight});
+  @include break-point(l, max, height) {
+    height: calc(100vh - 3 * #{$lineHeight})
+  }
+}
+
+.svgBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 6 * #{$lineHeight});
+  background-image: url("bckg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  background-blend-mode: multiply;
+  opacity: 0.5;
+  @include animation(slideTop, 2s);
+}
+
+#belowFold {
+  position: relative;
+}
+
+.feature {
+  width: 100%;
+  padding-top: 144px;
+  padding-bottom: 120px;
+
+  p {
+    width: 100%;
+    @include box-sizing(border-box);
+  }
+
+  .image {
+    img {
+      display: block;
+      margin: auto;
+      max-height: 50vh;
+    }
+  }
+
+  .columns {
+    display: block;
+    overflow: auto;
+  }
+
+  .leftColumn {
+    display: block;
+    width: 100%;
+    float: none;
+    margin: auto;
+    @include box-sizing(border-box);
+    @include break-point(l) {
+      width: calc(100% / (624 / 224));
+      padding-right: $lineHeight;
+      float: left;
+    }
+    @include break-point(xl) {
+      width: calc(100% / (984 / 224));
+    }
+  }
+
+  .rightColumn {
+    display: block;
+    width: 100%;
+    float: none;
+    margin: auto;
+    @include box-sizing(border-box);
+    @include break-point(l) {
+      width: calc(100% - (100% / (624 / 224)));
+      padding-left: $lineHeight;
+      float: right;
+    }
+    @include break-point(xl) {
+      width: calc(100% - (100% / (984 / 224)));
+    }
+  }
+
+  h3 {
+    span {
+      font-weight: normal;
+    }
+  }
+}
+
+.clear {
+  clear: right;
+}
+
+.softWrap {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  max-width: #{$maxWidth}px;
+  @include box-sizing(border-box);
+}
+
+.opticalCenter {
+  position: absolute;
+  top: calc(37.5vh - 24px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+hr {
+  border: none;
+  color: $borderColor;
+  background-color: $borderColor;
+  height: 1px;
+  width: 100%;
+}
