@@ -424,7 +424,7 @@ article .tagline {
   left: 0;
   width: 100%;
   height: calc(100vh - 6 * 1.5rem);
-  background-image: url("bckg.svg");
+  background-image: url("images/bckg.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
