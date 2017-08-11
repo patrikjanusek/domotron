@@ -1,0 +1,2449 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2017-08-11 10:51:58",
+    "containerVersion": {
+        "path": "accounts/1401847920/containers/6885066/versions/27",
+        "accountId": "1401847920",
+        "containerId": "6885066",
+        "containerVersionId": "27",
+        "name": "Version 2.1.0",
+        "description": "Added Hit ID.",
+        "container": {
+            "path": "accounts/1401847920/containers/6885066",
+            "accountId": "1401847920",
+            "containerId": "6885066",
+            "name": "www.domotron.com",
+            "publicId": "GTM-WHZ3JR5",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1502371411270",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/1401847920/containers/6885066/workspaces?apiLink=container"
+        },
+        "tag": [
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "4",
+                "name": "Adjusted Bounce - Script - Dwell and Scroll",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Dwell and Scroll -->\n<script>\n\n  (function() {\n    var visitTookTime = false;\n    var didScroll = false;\n    var bounceSent = false;\n    var scrollCount = 0;\n\n    setTimeout(timeElapsed, 30000);\n\n    window.addEventListener ?\n      window.addEventListener('scroll', testScroll, false) :\n      window.attachEvent('onScroll', testScroll);\n\n    function testScroll() {\n      ++scrollCount;\n      if (scrollCount == 2) {\n        didScroll = true\n      };\n      sendNoBounce();\n    }\n\n    function timeElapsed() {\n      visitTookTime = true;\n      sendNoBounce();\n    }\n\n    function sendNoBounce() {\n      if ((didScroll) && (visitTookTime) && !(bounceSent)) {\n        bounceSent = true;\n        dataLayer.push({\n          'event': 'GAEvent',\n          'eventCategory': 'NoBounce',\n          'eventAction': 'Time spent and page scrolled'\n        });\n      }\n    }\n  })(); \n\n</script>\n<!-- End Dwell and Scroll -->"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1499843757593",
+                "firingTriggerId": [
+                    "10"
+                ],
+                "parentFolderId": "53",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "31",
+                "name": "Conversion Tracking - Cookie Script - Bounceless Visit",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Bounceless Visit Cookie -->\n<script>\n\n// Set cookie expiration in days\nvar session = 1/48;\n\n// If there is no \"DMTRN_Status\" cookie create it and assign \"bounce\" value\nif (!CookiesApi.get('DMTRN_Status')) {\n  CookiesApi.set('DMTRN_Status', 'bounce', {\n    expires: session\n  });\n\n// If there is a \"DMTRN_Status\" cookie and it's value is \"bounce\"\n// change it's value to \"noBounce\"\n} else if (CookiesApi.get('DMTRN_Status') && CookiesApi.get('DMTRN_Status') == 'bounce') {\n  CookiesApi.set('DMTRN_Status', 'noBounce');\n\n// At the same time push event \"bouncelessVisit\" to Data Layer\n  dataLayer.push({\n    'event': 'bouncelessVisit',\n\n  })\n}\n\n</script>\n<!-- End Bounceless Visit Cookie -->"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1499854015698",
+                "firingTriggerId": [
+                    "29",
+                    "47"
+                ],
+                "parentFolderId": "54",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "34",
+                "name": "Conversion Tracking - Cookie Script - Form Submission",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- From Submission Cookie -->\n<script>\n\n// Set cookie expiration in days\nvar session = 30;    \n\n// If there is no \"DMTRN_Status\" cookie create it and assign \"lead\" value\nif (!CookiesApi.get('DMTRN_Status')) {\n  CookiesApi.set('DMTRN_Status', 'lead', {\n    expires: session\n  });\n    \n// If there is a \"DMTRN_Status\" cookie and it's value is \"bounce\"\n// change it's value to \"lead\"\n} else if (CookiesApi.get('DMTRN_Status') && CookiesApi.get('DMTRN_Status') == 'bounce') {\n  CookiesApi.set('DMTRN_Status', 'lead');      \n   \n// If there is a \"DMTRN_Status\" cookie and it's value is \"noBounce\"\n// change it's value to \"lead\"\n} else if (CookiesApi.get('DMTRN_Status') && CookiesApi.get('DMTRN_Status') == 'noBounce') {\n  CookiesApi.set('DMTRN_Status', 'lead');\n\n// If there is a \"DMTRN_Status\" cookie and it's value is \"trial\"\n// change it's value to \"lead\"\n} else if (CookiesApi.get('DMTRN_Status') && CookiesApi.get('DMTRN_Status') == 'trial') {\n  CookiesApi.set('DMTRN_Status', 'lead');      \n\n}\n\n</script>\n<!-- End From Submission Cookie -->"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1499866443220",
+                "firingTriggerId": [
+                    "56",
+                    "59"
+                ],
+                "parentFolderId": "54",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "37",
+                "name": "Conversion Tracking - Cookie Script - Simulator Engagement",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Cloud Registration Cookie -->\n<script>\n\n// Set cookie expiration in days\nvar session = 30;    \n\n// If there is no \"DMTRN_Status\" cookie create it and assign \"trial\" value\nif (!CookiesApi.get('DMTRN_Status')) {\n  CookiesApi.set('DMTRN_Status', 'trial', {\n    expires: session\n  });\n    \n// If there is a \"DMTRN_Status\" cookie and it's value is \"bounce\"\n// change it's value to \"lead\"\n} else if (CookiesApi.get('DMTRN_Status') && CookiesApi.get('DMTRN_Status') == 'bounce') {\n  CookiesApi.set('DMTRN_Status', 'trial');      \n   \n// If there is a \"DMTRN_Status\" cookie and it's value is \"noBounce\"\n// change it's value to \"lead\"\n} else if (CookiesApi.get('DMTRN_Status') && CookiesApi.get('DMTRN_Status') == 'noBounce') {\n  CookiesApi.set('DMTRN_Status', 'trial');\n}\n\n</script>\n<!-- Cloud Registration Cookie -->"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1500019628446",
+                "firingTriggerId": [
+                    "57"
+                ],
+                "parentFolderId": "54",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "33",
+                "name": "Conversion Tracking - Facebook Event - Bounceless Visit",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Facebook Event Bounceless Visit -->\n<script>\n\n// Send facebook custom event with custom dimensions\nfbq('track', 'BouncelessVisit', {\n  client_id: {{User Information - Data Layer Variable - Client ID}},\n  session_id: {{User Information - Cookie - Session ID}},\n  hit_timestamp: {{Generic - Timestamp - Unix Time with Local Offset}},\n  user_id: {{User Information - Cookie - User ID}},\n  cloud_id: {{User Information - Cookie - Cloud ID}}\n});\n\n</script>\n<!-- End Facebook Event Bounceless Visit -->"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1499853164839",
+                "firingTriggerId": [
+                    "55"
+                ],
+                "parentFolderId": "54",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "36",
+                "name": "Conversion Tracking - Facebook Event - Form Submission",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Facebook Event Form Submission -->\n<script>\n\n// Send facebook custom event with custom dimensions\nfbq('track', 'FormSubmission', {\n  client_id: {{User Information - Data Layer Variable - Client ID}},\n  session_id: {{User Information - Cookie - Session ID}},\n  hit_timestamp: {{Generic - Timestamp - Unix Time with Local Offset}},\n  user_id: {{User Information - Cookie - User ID}},\n  cloud_id: {{User Information - Cookie - Cloud ID}}\n});\n\n</script>\n<!-- End Facebook Event Form Submission -->"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1499866477130",
+                "firingTriggerId": [
+                    "56",
+                    "59"
+                ],
+                "parentFolderId": "54",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "39",
+                "name": "Conversion Tracking - Facebook Event - Simulator Engagement",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Facebook Event Cloud Registration -->\n<script>\n\n// Send facebook custom event with custom dimensions\nfbq('track', 'SimulatorEngagement', {\n  client_id: {{User Information - Data Layer Variable - Client ID}},\n  session_id: {{User Information - Cookie - Session ID}},\n  hit_timestamp: {{Generic - Timestamp - Unix Time with Local Offset}},\n  user_id: {{User Information - Cookie - User ID}},\n  cloud_id: {{User Information - Cookie - Cloud ID}}\n});\n\n</script>\n<!-- End Facebook Event Cloud Registration -->"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1500019677276",
+                "firingTriggerId": [
+                    "57"
+                ],
+                "parentFolderId": "54",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "32",
+                "name": "Conversion Tracking - Google Analytics Event - Bounceless Visit",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "Goal"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Core - Tracker ID - Google Analytics}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "Bounceless Visit"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "dimension",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Data Layer Variable - Client ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "2"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - Session ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "3"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Generic - Timestamp - Unix Time with Local Offset}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "4"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - User ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "5"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - Cloud ID}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499847833954",
+                "firingTriggerId": [
+                    "55"
+                ],
+                "parentFolderId": "54",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "35",
+                "name": "Conversion Tracking - Google Analytics Event - Form Submission",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "Goal"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Core - Tracker ID - Google Analytics}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "Form Submission"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "dimension",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Data Layer Variable - Client ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "2"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - Session ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "3"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Generic - Timestamp - Unix Time with Local Offset}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "4"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - User ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "5"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - Cloud ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "7"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Generic - Data Layer Variable - Hit ID}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1502371421139",
+                "firingTriggerId": [
+                    "56",
+                    "59"
+                ],
+                "parentFolderId": "54",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "38",
+                "name": "Conversion Tracking - Google Analytics Event - Simulator Engagement",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "Goal"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Core - Tracker ID - Google Analytics}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "Simulator Enagagement"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "dimension",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Data Layer Variable - Client ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "2"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - Session ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "3"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Generic - Timestamp - Unix Time with Local Offset}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "4"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - User ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "5"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - Cloud ID}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500019654411",
+                "firingTriggerId": [
+                    "57"
+                ],
+                "parentFolderId": "54",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "40",
+                "name": "Debuging - Script - Console Log",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\nvar debugMode = {{Debuging - Variable - Debug Mode}};\nconsole.log(\"Container ID: \" + {{Debuging - Variable - Container ID}});\nconsole.log(\"Container Version Number: \" + {{Debuging - Variable - Container Version}});\nconsole.log(debugMode ? \"Debug Mode: True\" : \"Debug Mode: False\");\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1500031142654",
+                "firingTriggerId": [
+                    "2147479553"
+                ],
+                "parentFolderId": "60",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "6",
+                "name": "Engagement Tracking - Custom Script - Chartbeat's Script",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\n  (function() {\n    var startEngage = new Date().getTime();\n    var timeEngaged = 0;\n    var idleTime = 0;\n    var idle = true;\n    var idleReport = false;\n    var idleTimer, reportTimer;\n    \n    /*  Set the user as idle, and calculate the time\n        they were non-idle */\n    var setIdle = function() {\n      idleTime = new Date().getTime();\n      timeEngaged += idleTime - startEngage;\n      idle = true;\n    };\n    \n    /*  Reset the 5 second idle timer.\n        If the user was idle, start the non-idle timer */\n    var pulse = function(evt) {\n      if (idle) {\n        idle = false;\n        startEngage = new Date().getTime();\n        idleReport = false;\n      }\n      window.clearTimeout(idleTimer);\n      idleTimer = window.setTimeout(setIdle, 5000); \n    };    \n    \n    //  Utility function for attaching listeners to the window\n    var addListener = function(evt, cb) {\n      if (window.addEventListener) {\n        window.addEventListener(evt, cb);\n      } else if (window.attachEvent) {\n        window.attachEvent('on' + evt, cb);\n      }\n    };\n    \n    /* Push an event to dataLayer every 15 seconds\n       unless the user is idle.\n       Also, push an event when the user leaves the page */\n    var report = function(evt) {\n      if (!idle) {\n        timeEngaged += new Date().getTime() - startEngage;\n      }\n\n      // Push the payload to dataLayer, and only push valid time values\n      if (!idleReport && timeEngaged > 0 && timeEngaged < 3600000) { \n\t    window.dataLayer.push({\n    \t  'event' : 'nonIdle',\n          'nonIdleTimeElapsed' : timeEngaged\n        });\n      }\n      if (idle) {\n        idleReport = true;\n      }\n      \n      // Fix possible beforeunload duplication problem\n      if (evt && evt.type === 'beforeunload') {\n\t    window.removeEventListener('beforeunload', report);\n      }\n      timeEngaged = 0;\n      startEngage = new Date().getTime();\n      reportTimer = window.setTimeout(report, 15000);\n    };\n    \n    addListener('mousedown', pulse);\n    addListener('keydown', pulse);\n    addListener('scroll', pulse);\n    addListener('mousemove', pulse);\n    addListener('beforeunload', report);\n    idleTimer = window.setTimeout(setIdle, 5000);\n    reportTimer = window.setTimeout(report, 15000);\n  })();\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1499856327686",
+                "firingTriggerId": [
+                    "10"
+                ],
+                "parentFolderId": "58",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "7",
+                "name": "Engagement Tracking - Google Analytics Event - Engagement Time",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "true"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "true"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "fieldsToSet",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "transport"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "beacon"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "Engaged Time"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "metric",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "metric",
+                                        "value": "{{Engagement Tracking - Custom JS Variable - Get Engagement Time}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Core - Tracker ID - Google Analytics}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{Page Path}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{Engagement Tracking - Custom JS Variable - Get Engagement Time}}"
+                    }
+                ],
+                "fingerprint": "1499856150623",
+                "firingTriggerId": [
+                    "13"
+                ],
+                "parentFolderId": "58",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "16",
+                "name": "Generic - Google Analytics Event - Generic Event",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "nonInteraction",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventValue",
+                        "value": "{{Generic - Data Layer Variable - Event Value}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventCategory",
+                        "value": "{{Generic - Data Layer Variable - Event Category}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_EVENT"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Core - Tracker ID - Google Analytics}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventAction",
+                        "value": "{{Generic - Data Layer Variable - Event Action}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "eventLabel",
+                        "value": "{{Generic - Data Layer Variable - Event Label}}"
+                    }
+                ],
+                "fingerprint": "1499855924331",
+                "firingTriggerId": [
+                    "11"
+                ],
+                "parentFolderId": "52",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "22",
+                "name": "Module - AdWords Remarketing - Audience building",
+                "type": "sp",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionId",
+                        "value": "{{Core - Tracker ID - AdWords Audience Building}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "customParamsFormat",
+                        "value": "NONE"
+                    }
+                ],
+                "fingerprint": "1499785644214",
+                "firingTriggerId": [
+                    "45"
+                ],
+                "parentFolderId": "51",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "30",
+                "name": "Module - AdWords Remarketing - Simulator Engagement",
+                "type": "sp",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionId",
+                        "value": "{{Core - Tracker ID - AdWords Simulator Enagagement}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "customParamsFormat",
+                        "value": "NONE"
+                    }
+                ],
+                "fingerprint": "1499785849422",
+                "parentFolderId": "51",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "14",
+                "name": "Module - Adwords Remarketing - Lead Generation",
+                "type": "sp",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "conversionId",
+                        "value": "{{Core - Tracker ID - AdWords Lead Generation}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "customParamsFormat",
+                        "value": "NONE"
+                    }
+                ],
+                "fingerprint": "1499785677713",
+                "firingTriggerId": [
+                    "45"
+                ],
+                "parentFolderId": "51",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "26",
+                "name": "Module - JS Library - Cookie API",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Cookie API Library -->\n<script src=\"https://www.domotron.com/templates/domotron/js/js.cookie.js\" type=\"text/javascript\"></script>\n\n<script type=\"text/javascript\">\n  \n// This needs to be here for some reason\nvar CookiesApi = Cookies.noConflict();\n  \n// Signal Tag Manager that Cookie API is ready  \nwindow.dataLayer = window.dataLayer || [];\nwindow.dataLayer.push({\n    'event' : 'cookieReady',\n});\n  \n</script>\n<!-- End Cookie API Library -->"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1501676945354",
+                "firingTriggerId": [
+                    "45"
+                ],
+                "parentFolderId": "51",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "25",
+                "name": "Module - Tracker - Facebook Pixel",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Facebook Pixel Code -->\n<script>\n\n// Asynchronously download the fbevents.js JavaScript library\n// from https://connect.facebook.net/en_US/fbevents.js\n// and initialize a global \"fbq\" function\n!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;\nn.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,\ndocument,'script','https://connect.facebook.net/en_US/fbevents.js');\n\n// Create a new tracker object for the property XXXXXXXXXXXXXXXX\n// specified in the variable \"Core - Tracker ID - Facebook Pixel\"\nfbq('init', '{{Core - Tracker ID - Facebook Pixel}}', {\n\n// Facebook Advanced Matching\n// Data will be hashed automatically via a dedicated function in FB pixel\n  // em: Email Name Variable\n  // ln: Last Name Variable\n  // ph: Phone Variable\n  // ge: Gender Variable\n  // db: Date of Birth Variable\n  // ct: City Variable\n  // st: State Variable\n  // zp: Zip Variable\n\n});\n\n</script>\n\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\"\nsrc=\"https://www.facebook.com/tr?id=1023595821090228&ev=PageView&noscript=1\"\n/></noscript>\n\n<script>\n\n// Signal Tag Manager that Facebook Pixel is ready  \nwindow.dataLayer = window.dataLayer || [];\nwindow.dataLayer.push({\n    'event' : 'fbqReady',\n});\n  \n</script>\n<!-- End Facebook Pixel Code -->"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1499790103583",
+                "firingTriggerId": [
+                    "46"
+                ],
+                "parentFolderId": "51",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "24",
+                "name": "Module - Tracker - Google Analytics",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<!-- Google Analytics -->\n<script>\n\n// Asynchronously download the analytics.js JavaScript library\n// from https://www.google-analytics.com/analytics.js\n// and initialize a global \"ga\" function\n(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\nm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');\n\n// Create a new tracker object for the property UA-XXXXX-Y\n// specifiea via the variable \"Core - Tracker ID - Google Analytics\"\nga('create', '{{Core - Tracker ID - Google Analytics}}', 'auto');\n\n// Load Google Analytics plugins\n// ga('require', 'foo');\n\n// Signal Tag Manager that Google Analytics are ready\n// and push clientID to Data Layer\nga(function(tracker) {\n  window.dataLayer.push({\n    'event' : 'gaReady',\n    'ClientID' : tracker.get('clientId')\n  });\n});\n\n</script>\n<!-- End Google Analytics -->"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1499790088150",
+                "firingTriggerId": [
+                    "48"
+                ],
+                "parentFolderId": "51",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "28",
+                "name": "Page View - Page View Tag - Facebook Pixel",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\n\n// Facebook PageView Event \nfbq('track', 'PageView', {\n\thit_timestamp: {{Generic - Timestamp - Unix Time with Local Offset}},\n  \tclient_id: {{User Information - Data Layer Variable - Client ID}},\n \tsession_id: {{User Information - Cookie - Session ID}},\n   \tuser_id: {{User Information - Cookie - User ID}},\n    cloud_id: {{User Information - Cookie - Cloud ID}}\n }\n);\n\n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1499853180481",
+                "firingTriggerId": [
+                    "47"
+                ],
+                "parentFolderId": "49",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "tagId": "27",
+                "name": "Page View - Page View Tag - Google Analytics",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "true"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "fieldsToSet",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "campaignSource"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{Campaign Tracking - Lookup Table - Campaign Source}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "campaignMedium"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{Campaign Tracking - Lookup Table - Campaign Medium}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "campaignName"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{Campaign Tracking - Lookup Table - Campaign Name}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "campaignKeyword"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{Campaign Tracking - URL Query - Keyword}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "fieldName",
+                                        "value": "campaignContent"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "{{Campaign Tracking - Lookup Table - Campaign Content}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Core - Tracker ID - Google Analytics}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "dimension",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "2"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - Session ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "3"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Generic - Timestamp - Unix Time with Local Offset}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "4"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - User ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "5"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Cookie - Cloud ID}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "6"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{Campaign Tracking - Lookup Table - Ad Group}}"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "index",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "dimension",
+                                        "value": "{{User Information - Data Layer Variable - Client ID}}"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499788943405",
+                "firingTriggerId": [
+                    "46"
+                ],
+                "parentFolderId": "49",
+                "tagFiringOption": "ONCE_PER_EVENT"
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "29",
+                "name": "Adjusted Bounce - Trigger - Dwell and Scroll",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "GAEvent"
+                            }
+                        ]
+                    }
+                ],
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Generic - Data Layer Variable - Event Category}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "NoBounce"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Generic - Data Layer Variable - Event Action}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "Time spent and page scrolled"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499791154424",
+                "parentFolderId": "53"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "55",
+                "name": "Conversion Tracking - Event Trigger - Bounceless Visit",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "bouncelessVisit"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499847260621",
+                "parentFolderId": "54"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "59",
+                "name": "Conversion Tracking - Event Trigger - Calculator Submission",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "calculatorSubmissionSuccess"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499955800865",
+                "parentFolderId": "54"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "56",
+                "name": "Conversion Tracking - Event Trigger - Lead Submission",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "leadSubmissionSuccess"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499955841688",
+                "parentFolderId": "54"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "57",
+                "name": "Conversion Tracking - Event Trigger - Simulator Redirect",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "simulatorRedirectSuccess"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500018752261",
+                "parentFolderId": "54"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "48",
+                "name": "Core - Event Trigger - Cookie API Ready",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "cookieReady"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499777903347",
+                "parentFolderId": "44"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "47",
+                "name": "Core - Event Trigger - Facebook Pixel Ready",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "fbqReady"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499777766715",
+                "parentFolderId": "44"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "46",
+                "name": "Core - Event Trigger - Google Analytics Ready",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "gaReady"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499777729521",
+                "parentFolderId": "44"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "45",
+                "name": "Core - Pageview Trigger - Load Modules",
+                "type": "PAGEVIEW",
+                "fingerprint": "1499777861815",
+                "parentFolderId": "44"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "13",
+                "name": "Engagement Tracking - Event Trigger - Non-idle",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "nonIdle"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499856295234",
+                "parentFolderId": "58"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "11",
+                "name": "Generic - Event Trigger - Generic Event",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "GAEvent"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1499791771846",
+                "parentFolderId": "52"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "triggerId": "10",
+                "name": "Page View - DOM Ready Trigger - Generic",
+                "type": "DOM_READY",
+                "fingerprint": "1499792325371",
+                "parentFolderId": "52"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "31",
+                "name": "Campaign Tracking - Lookup Table - Ad Group",
+                "type": "smm",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "input",
+                        "value": "{{Campaign Tracking - URL Query - Ad Group ID}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "map",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500292800051",
+                "parentFolderId": "41"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "32",
+                "name": "Campaign Tracking - Lookup Table - Campaign Content",
+                "type": "smm",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "input",
+                        "value": "{{Campaign Tracking - URL Query - Unique Ad ID}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "map",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500292792573",
+                "parentFolderId": "41"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "41",
+                "name": "Campaign Tracking - Lookup Table - Campaign Medium",
+                "type": "smm",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "input",
+                        "value": "{{Campaign Tracking - URL Query - Campaign Medium ID}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "map",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500292807819",
+                "parentFolderId": "41"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "29",
+                "name": "Campaign Tracking - Lookup Table - Campaign Name",
+                "type": "smm",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "input",
+                        "value": "{{Campaign Tracking - URL Query - Campaign ID}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "map",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500292820819",
+                "parentFolderId": "41"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "30",
+                "name": "Campaign Tracking - Lookup Table - Campaign Source",
+                "type": "smm",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "input",
+                        "value": "{{Campaign Tracking - URL Query - Campaign Source ID}}"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "map",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1500292814059",
+                "parentFolderId": "41"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "26",
+                "name": "Campaign Tracking - URL Query - Ad Group ID",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "adgroup_id"
+                    }
+                ],
+                "fingerprint": "1499696435676",
+                "parentFolderId": "41"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "25",
+                "name": "Campaign Tracking - URL Query - Campaign ID",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "campaign_id"
+                    }
+                ],
+                "fingerprint": "1499696446845",
+                "parentFolderId": "41"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "40",
+                "name": "Campaign Tracking - URL Query - Campaign Medium ID",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "campaign_medium_id"
+                    }
+                ],
+                "fingerprint": "1499707387797",
+                "parentFolderId": "41"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "28",
+                "name": "Campaign Tracking - URL Query - Campaign Source ID",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "source_id"
+                    }
+                ],
+                "fingerprint": "1499696452643",
+                "parentFolderId": "41"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "43",
+                "name": "Campaign Tracking - URL Query - Keyword",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "keyword"
+                    }
+                ],
+                "fingerprint": "1499707961086",
+                "parentFolderId": "41"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "27",
+                "name": "Campaign Tracking - URL Query - Unique Ad ID",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "unique_ad_id"
+                    }
+                ],
+                "fingerprint": "1499696466217",
+                "parentFolderId": "41"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "51",
+                "name": "Core - Tracker ID - AdWords Audience Building",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "848353962"
+                    }
+                ],
+                "fingerprint": "1499785654864",
+                "parentFolderId": "44"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "50",
+                "name": "Core - Tracker ID - AdWords Lead Generation",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "851564233"
+                    }
+                ],
+                "fingerprint": "1499785570468",
+                "parentFolderId": "44"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "52",
+                "name": "Core - Tracker ID - AdWords Simulator Enagagement",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "not set"
+                    }
+                ],
+                "fingerprint": "1499785765151",
+                "parentFolderId": "44"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "47",
+                "name": "Core - Tracker ID - Facebook Pixel",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "1023595821090228"
+                    }
+                ],
+                "fingerprint": "1499766301108",
+                "parentFolderId": "44"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "48",
+                "name": "Core - Tracker ID - Google Analytics",
+                "type": "gas",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "cookieDomain",
+                        "value": "auto"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "doubleClick",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setTrackerName",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useDebugVersion",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useHashAutoLink",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "decorateFormsAutoLink",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableLinkId",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableEcommerce",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackingId",
+                        "value": "UA-48243369-1"
+                    }
+                ],
+                "fingerprint": "1499766417531",
+                "parentFolderId": "44"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "57",
+                "name": "Debuging - Variable - Container ID",
+                "type": "cid",
+                "fingerprint": "1500030847939",
+                "parentFolderId": "60"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "58",
+                "name": "Debuging - Variable - Container Version",
+                "type": "ctv",
+                "fingerprint": "1500031012599",
+                "parentFolderId": "60"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "59",
+                "name": "Debuging - Variable - Debug Mode",
+                "type": "dbg",
+                "fingerprint": "1500030854538",
+                "parentFolderId": "60"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "11",
+                "name": "Engagement Tracking - Custom JS Variable - Get Engagement Time",
+                "type": "jsm",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "javascript",
+                        "value": "function() {\n  return {{Engagement Tracking - Data Layer Variable - Non-idle Time Elapsed}} / 1000;\n}"
+                    }
+                ],
+                "fingerprint": "1499856206094",
+                "parentFolderId": "58"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "10",
+                "name": "Engagement Tracking - Data Layer Variable - Non-idle Time Elapsed",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "nonIdleTimeElapsed"
+                    }
+                ],
+                "fingerprint": "1499856264189",
+                "parentFolderId": "58"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "56",
+                "name": "Generic - Constant - Session Expiration",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "var session = 1/48;"
+                    }
+                ],
+                "fingerprint": "1499846589218",
+                "parentFolderId": "52"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "18",
+                "name": "Generic - Data Layer Variable - Event Action",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "eventAction"
+                    }
+                ],
+                "fingerprint": "1499791537798",
+                "parentFolderId": "52"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "17",
+                "name": "Generic - Data Layer Variable - Event Category",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "eventCategory"
+                    }
+                ],
+                "fingerprint": "1499791572472",
+                "parentFolderId": "52"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "19",
+                "name": "Generic - Data Layer Variable - Event Label",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "eventLabel"
+                    }
+                ],
+                "fingerprint": "1499791566581",
+                "parentFolderId": "52"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "20",
+                "name": "Generic - Data Layer Variable - Event Value",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "eventValue"
+                    }
+                ],
+                "fingerprint": "1499791560538",
+                "parentFolderId": "52"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "62",
+                "name": "Generic - Data Layer Variable - Hit ID",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "hitId"
+                    }
+                ],
+                "fingerprint": "1502372045626",
+                "parentFolderId": "52"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "8",
+                "name": "Generic - Timestamp - Unix Time with Local Offset",
+                "type": "jsm",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "javascript",
+                        "value": "function() {\n    // Get local time as ISO string with offset at the end\n    var now = new Date();\n    var tzo = -now.getTimezoneOffset();\n    var dif = tzo >= 0 ? '+' : '-';\n    var pad = function(num) {\n        var norm = Math.abs(Math.floor(num));\n        return (norm < 10 ? '0' : '') + norm;\n    };\n    return now.getFullYear() \n        + '-' + pad(now.getMonth()+1)\n        + '-' + pad(now.getDate())\n        + 'T' + pad(now.getHours())\n        + ':' + pad(now.getMinutes()) \n        + ':' + pad(now.getSeconds())\n        + '.' + pad(now.getMilliseconds())\n        + dif + pad(tzo / 60) \n        + ':' + pad(tzo % 60);\n}"
+                    }
+                ],
+                "fingerprint": "1499790660909",
+                "parentFolderId": "52"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "54",
+                "name": "User Information - Cookie - Cloud ID",
+                "type": "k",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "decodeCookie",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "DMTRN_CloudID"
+                    }
+                ],
+                "fingerprint": "1499786792173",
+                "parentFolderId": "50"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "49",
+                "name": "User Information - Cookie - Session ID",
+                "type": "jsm",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "javascript",
+                        "value": "function() {\n  \n// Set cookie expiration in days\nvar session = 1/48;\n\n// Create DMTRN_SessionID if tere is none\nif (!CookiesApi.get('DMTRN_SessionID')) {\n CookiesApi.set('DMTRN_SessionID', {{User Information - Generator - Session ID}}, {\n   expires: session\n});\n}\n  \n// Return Session ID  \n return CookiesApi.get('DMTRN_SessionID');\n  \n}"
+                    }
+                ],
+                "fingerprint": "1499854031012",
+                "parentFolderId": "50"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "53",
+                "name": "User Information - Cookie - User ID",
+                "type": "k",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "decodeCookie",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "DMTRN_UserID"
+                    }
+                ],
+                "fingerprint": "1499786599826",
+                "parentFolderId": "50"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "55",
+                "name": "User Information - Data Layer Variable - Client ID",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "ClientID"
+                    }
+                ],
+                "fingerprint": "1499788904375",
+                "parentFolderId": "50"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "variableId": "21",
+                "name": "User Information - Generator - Session ID",
+                "type": "jsm",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "javascript",
+                        "value": "function() {\n    return new Date().getTime() + '.' + Math.random().toString(36).substring(5);\n}"
+                    }
+                ],
+                "fingerprint": "1499786212385",
+                "parentFolderId": "50"
+            }
+        ],
+        "folder": [
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "folderId": "53",
+                "name": "Adjusted Bounce",
+                "fingerprint": "1499790848724"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "folderId": "41",
+                "name": "Campaign Tracking",
+                "fingerprint": "1499764706910"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "folderId": "54",
+                "name": "Conversion Tracking",
+                "fingerprint": "1499845707072"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "folderId": "44",
+                "name": "Core",
+                "fingerprint": "1499764699669"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "folderId": "60",
+                "name": "Debugging",
+                "fingerprint": "1500024187146"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "folderId": "58",
+                "name": "Engagement Tracking",
+                "fingerprint": "1499856007599"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "folderId": "52",
+                "name": "Generic",
+                "fingerprint": "1499790533340"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "folderId": "51",
+                "name": "Modules",
+                "fingerprint": "1499785367356"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "folderId": "49",
+                "name": "Pageview",
+                "fingerprint": "1499778987009"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "folderId": "50",
+                "name": "User Information",
+                "fingerprint": "1499779932799"
+            }
+        ],
+        "builtInVariable": [
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "PAGE_URL",
+                "name": "Page URL"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "PAGE_HOSTNAME",
+                "name": "Page Hostname"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "PAGE_PATH",
+                "name": "Page Path"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "REFERRER",
+                "name": "Referrer"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "EVENT",
+                "name": "Event"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "CLICK_ELEMENT",
+                "name": "Click Element"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "CLICK_CLASSES",
+                "name": "Click Classes"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "CLICK_ID",
+                "name": "Click ID"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "CLICK_TARGET",
+                "name": "Click Target"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "CLICK_URL",
+                "name": "Click URL"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "CLICK_TEXT",
+                "name": "Click Text"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "FORM_ELEMENT",
+                "name": "Form Element"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "FORM_CLASSES",
+                "name": "Form Classes"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "FORM_ID",
+                "name": "Form ID"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "FORM_TARGET",
+                "name": "Form Target"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "FORM_URL",
+                "name": "Form URL"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "FORM_TEXT",
+                "name": "Form Text"
+            },
+            {
+                "accountId": "1401847920",
+                "containerId": "6885066",
+                "type": "HTML_ID",
+                "name": "HTML ID"
+            }
+        ],
+        "fingerprint": "1502377815977",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/1401847920/containers/6885066/versions/27?apiLink=version"
+    }
+}

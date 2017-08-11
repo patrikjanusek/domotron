@@ -1,0 +1,25 @@
+<!-- Cloud Registration Cookie -->
+<script>
+
+// Set cookie expiration in days
+var session = 30;
+
+// If there is no "DMTRN_Status" cookie create it and assign "trial" value
+if (!CookiesApi.get('DMTRN_Status')) {
+  CookiesApi.set('DMTRN_Status', 'trial', {
+    expires: session
+  });
+
+// If there is a "DMTRN_Status" cookie and it's value is "bounce"
+// change it's value to "lead"
+} else if (CookiesApi.get('DMTRN_Status') && CookiesApi.get('DMTRN_Status') == 'bounce') {
+  CookiesApi.set('DMTRN_Status', 'trial');
+
+// If there is a "DMTRN_Status" cookie and it's value is "noBounce"
+// change it's value to "lead"
+} else if (CookiesApi.get('DMTRN_Status') && CookiesApi.get('DMTRN_Status') == 'noBounce') {
+  CookiesApi.set('DMTRN_Status', 'trial');
+}
+
+</script>
+<!-- Cloud Registration Cookie -->

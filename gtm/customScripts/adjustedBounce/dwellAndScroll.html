@@ -1,0 +1,38 @@
+<script>
+  (function() {
+    var visitTookTime = false;
+    var didScroll = false;
+    var bounceSent = false;
+    var scrollCount = 0;
+
+    setTimeout(timeElapsed, 30000);
+
+    window.addEventListener ?
+      window.addEventListener('scroll', testScroll, false) :
+      window.attachEvent('onScroll', testScroll);
+
+    function testScroll() {
+      ++scrollCount;
+      if (scrollCount == 2) {
+        didScroll = true
+      };
+      sendNoBounce();
+    }
+
+    function timeElapsed() {
+      visitTookTime = true;
+      sendNoBounce();
+    }
+
+    function sendNoBounce() {
+      if ((didScroll) && (visitTookTime) && !(bounceSent)) {
+        bounceSent = true;
+        dataLayer.push({
+          'event': 'GAEvent',
+          'eventCategory': 'NoBounce',
+          'eventAction': 'Time spent and page scrolled'
+        });
+      }
+    }
+  })();
+</script>

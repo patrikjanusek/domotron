@@ -1,0 +1,45 @@
+<!-- Facebook Pixel Code -->
+<script>
+
+// Asynchronously download the fbevents.js JavaScript library
+// from https://connect.facebook.net/en_US/fbevents.js
+// and initialize a global "fbq" function
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+// Create a new tracker object for the property XXXXXXXXXXXXXXXX
+// specified in the variable "Core - Tracker ID - Facebook Pixel"
+fbq('init', '{{Core - Tracker ID - Facebook Pixel}}', {
+
+// Facebook Advanced Matching
+// Data will be hashed automatically via a dedicated function in FB pixel
+  // em: Email Name Variable
+  // ln: Last Name Variable
+  // ph: Phone Variable
+  // ge: Gender Variable
+  // db: Date of Birth Variable
+  // ct: City Variable
+  // st: State Variable
+  // zp: Zip Variable
+
+});
+
+</script>
+
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1023595821090228&ev=PageView&noscript=1"
+/></noscript>
+
+<script>
+
+// Signal Tag Manager that Facebook Pixel is ready
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+    'event' : 'fbqReady',
+});
+
+</script>
+<!-- End Facebook Pixel Code -->

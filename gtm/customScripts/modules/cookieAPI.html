@@ -1,0 +1,16 @@
+<!-- Cookie API Library -->
+<script src="https://www.domotron.com/templates/domotron/js/js.cookie.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+  // This needs to be here for some reason
+  var CookiesApi = Cookies.noConflict();
+
+  // Signal Tag Manager that Cookie API is ready
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+      'event' : 'cookieReady',
+  });
+
+</script>
+<!-- End Cookie API Library -->
