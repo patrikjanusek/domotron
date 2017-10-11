@@ -16,6 +16,9 @@ ga('create', '{{Core - Tracker ID - Google Analytics}}', 'auto');
 // Load Google Analytics plugins
 // ga('require', 'foo');
 
+// Set the user ID using signed-in user_id.
+ga('set', 'userId', '{{User Information - Cookie - User ID}}');
+
 // Signal Tag Manager that Google Analytics are ready
 // and push clientID to Data Layer
 ga(function(tracker) {
