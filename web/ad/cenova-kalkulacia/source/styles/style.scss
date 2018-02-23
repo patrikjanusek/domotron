@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, hgroup, p, blockquote, figure, form, fieldset, input, legend, pre, abbr, button {
+  margin: 0;
+  padding: 0;
+}
+
+$borderColor: rgba(255, 255, 255, 0.25);
+$bckgColor1: rgba(255, 103, 31, 1);
+$bckgColor2: rgba(235, 75, 3, 1);
+$accentColor: rgba(60, 191, 174, 1);
+$faderColor1: rgba(255, 103, 31, 0);
+$faderColor2: rgba(235, 75, 3, 0);
+
+@import 'functions';
+@import 'scaleAndRythm';
+@import 'mixins';
+@import "keyframes";
+@import 'header';
+@import 'footer';
+@import "main";
+
+.viewPort {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 30;
+}
+
+.background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.gradient {
+  @include linear-gradient($bckgColor1, $bckgColor2);
+  background-attachment: fixed;
+}
+
+.center {
+  &.both {
+    @include center;
+  }
+
+  &.horizontal {
+    @include center(true, false);
+  }
+
+  &.vertical {
+    @include center(false, true);
+  }
+}
+
+.fader {
+  width: 100%;
+  position: absolute;
+}
+
+#topFader {
+  top: 3 * $lineHeight;
+  height: 2 * $lineHeight;
+  left: 0;
+  @include linear-gradient($bckgColor1, $faderColor1);
+}
+
+#bottomFader {
+  bottom: 3 * $lineHeight;
+  height: 4 * $lineHeight;
+  left: 0;
+  @include linear-gradient($faderColor2, $bckgColor2);
+}

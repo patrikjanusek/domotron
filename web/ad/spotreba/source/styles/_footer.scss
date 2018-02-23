@@ -1,0 +1,69 @@
+footer {
+  position: fixed;
+  @include break-point(m, max, height) {
+    position: relative;
+  }
+  bottom: 0;
+  height: 3 * $lineHeight;
+  width: 100%;
+  min-width: #{$minWidth}px;
+  padding: $lineHeight;
+  z-index: 10;
+  font-size:  $rem / pow($modulator, 2);
+  line-height: $lineHeight;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.33);
+  @include z-depth(0);
+  @include box-sizing(border-box);
+  background-color: $bckgColor2;
+  @include border-style(top);
+  @include animation(slideBottom, 2s);
+
+  a {
+    color: rgba(255, 255, 255, 0.70);
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    &:active {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+.bttn {
+  margin: 0;
+  width: $rem * 17;
+  background-color: $accentColor;
+  @include border-style(all);
+  @include border-radius(1 * $lineHeight);
+  @include box-sizing(border-box);
+  @include z-depth(1);
+  z-index: 20;
+  padding: 0.5 * $lineHeight 1 * $lineHeight 0.5 * $lineHeight 1 * $lineHeight;
+  @include center;
+  top: 0 !important;
+  cursor: pointer;
+
+  span {
+    font-size: $rem;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &:focus,
+  &:hover {
+    @include z-depth(3);
+    transform: translate(-50%, calc(-50% - 5px)) !important;
+  }
+
+  &:active {
+    @include z-depth(2);
+    transform: translate(-50%, calc(-50% - 2px)) !important;
+  }
+}
