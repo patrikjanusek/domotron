@@ -52,8 +52,8 @@ nav {
     }
 
     img {
-      height: $rem;
-      margin-top: $rem / 4;
+      height: 2 * $rem;
+      margin-top: $rem / -4;
     }
   }
 }
