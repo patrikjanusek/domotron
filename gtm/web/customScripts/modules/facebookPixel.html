@@ -35,11 +35,19 @@ src="https://www.facebook.com/tr?id=1023595821090228&ev=PageView&noscript=1"
 
 <script>
 
-// Signal Tag Manager that Facebook Pixel is ready
-window.dataLayer = window.dataLayer || [];
+// Check if other modules are loaded and signal GTM
+
+var modulesLoaded = {{Modules - DataLayer Variable - Modules Loaded}};
+modulesLoaded++;
 window.dataLayer.push({
-    'event' : 'fbqReady',
+  'modulesLoaded' : modulesLoaded
 });
+
+if (modulesLoaded == {{Modules - Constant - Modules Count}}) {
+  window.dataLayer.push({
+    'event' : 'modulesLoaded'
+  });
+};
 
 </script>
 <!-- End Facebook Pixel Code -->

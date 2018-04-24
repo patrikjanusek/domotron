@@ -3,14 +3,22 @@
 
 <script type="text/javascript">
 
-  // This needs to be here for some reason
-  var CookiesApi = Cookies.noConflict();
+// This needs to be here for some reason
+var CookiesApi = Cookies.noConflict();
 
-  // Signal Tag Manager that Cookie API is ready
-  window.dataLayer = window.dataLayer || [];
+// Check if other modules are loaded and signal GTM
+
+var modulesLoaded = {{Modules - DataLayer Variable - Modules Loaded}};
+modulesLoaded++;
+window.dataLayer.push({
+  'modulesLoaded' : modulesLoaded
+});
+
+if (modulesLoaded == {{Modules - Constant - Modules Count}}) {
   window.dataLayer.push({
-      'event' : 'cookieReady',
+    'event' : 'modulesLoaded'
   });
+};
 
 </script>
 <!-- End Cookie API Library -->

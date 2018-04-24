@@ -21,12 +21,26 @@ ga('set', 'userId', '{{User Information - Cookie - User ID}}');
 
 // Signal Tag Manager that Google Analytics are ready
 // and push clientID to Data Layer
+
 ga(function(tracker) {
   window.dataLayer.push({
-    'event' : 'gaReady',
     'ClientID' : tracker.get('clientId')
   });
 });
+
+// Check if other modules are loaded and signal GTM
+
+var modulesLoaded = {{Modules - DataLayer Variable - Modules Loaded}};
+modulesLoaded++;
+window.dataLayer.push({
+  'modulesLoaded' : modulesLoaded
+});
+
+if (modulesLoaded == {{Modules - Constant - Modules Count}}) {
+  window.dataLayer.push({
+    'event' : 'modulesLoaded'
+  });
+};
 
 </script>
 <!-- End Google Analytics -->

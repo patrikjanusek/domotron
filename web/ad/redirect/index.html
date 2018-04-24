@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WHZ3JR5');
+  </script>
+  <!-- End Google Tag Manager -->
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <meta name="apple-itunes-app" content="app-id=994279190"> -->
+  <title>Domotron Smart Home</title>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHZ3JR5"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="spinner" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">
+    <div class="lds-css ng-scope">
+      <div style="width:100%;height:100%;margin:auto" class="lds-eclipse">
+        <div></div>
+      </div>
+      <style type="text/css">
+        @keyframes lds-eclipse {
+          0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+          50% {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+          }
+          100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+
+        @-webkit-keyframes lds-eclipse {
+          0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+          50% {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+          }
+          100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+          }
+        }
+
+        .lds-eclipse {
+          position: relative;
+        }
+
+        .lds-eclipse div {
+          position: absolute;
+          -webkit-animation: lds-eclipse 1s linear infinite;
+          animation: lds-eclipse 1s linear infinite;
+          width: 160px;
+          height: 160px;
+          top: 20px;
+          left: 20px;
+          border-radius: 50%;
+          box-shadow: 0 4px 0 0 #FF671F;
+          -webkit-transform-origin: 80px 82px;
+          transform-origin: 80px 82px;
+        }
+
+        .lds-eclipse {
+          width: 200px !important;
+          height: 200px !important;
+          -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+          transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+        }
+      </style>
+    </div>
+    <h1 id="info" style="text-align:center; font-size:16px; font-family:sans-serif; color:#666">Prebieha presmerovanie</h1>
+    <script>
+    function parse_query_string(query) {
+      var vars = query.split("&");
+      var query_string = {};
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        // If first entry with this name
+        if (typeof query_string[pair[0]] === "undefined") {
+          query_string[pair[0]] = decodeURIComponent(pair[1]);
+          // If second entry with this name
+        } else if (typeof query_string[pair[0]] === "string") {
+          var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
+          query_string[pair[0]] = arr;
+          // If third or later entry with this name
+        } else {
+          query_string[pair[0]].push(decodeURIComponent(pair[1]));
+        }
+      }
+      return query_string;
+    }
+
+    var query_string = location.search;
+    var parsed_qs = parse_query_string(query_string.substring(1));
+
+    setTimeout(function() {
+      var h = document.getElementById('info');
+      var div = document.getElementById('spinner');
+      var redirect = parsed_qs.redirect;
+      var anchor = document.createElement('a');
+      var anchorText = document.createTextNode("Ak ste neboli automaticky presmerovaní, kliknite tu.");
+        if (typeof redirect !== 'undefined') {
+        window.location.replace(redirect);
+        anchor.setAttribute('href', redirect);
+      } else {
+        window.location.replace("https://www.domotron.com");
+        anchor.setAttribute('href', "https://www.domotron.com");
+      }
+      anchor.setAttribute('style', "display: block; text-decoration: none; color: #A2A2A2; text-align:center; font-size:16px; font-family:sans-serif");
+      anchor.appendChild(anchorText);
+      div.appendChild(anchor);
+    }, 3000);
+    </script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<script>
+  var redirect = "{{Redirect - URL Parameter - Redirect}}";
+
+  while (typeof modulesLoaded === 'undefined') {
+    if (typeof cookieReady !== 'undefined' && gaReady !== 'undefined' && fbqReady !== 'undefined') {
+      var modulesLoaded
+    };
+  };
+
+  if (typeof redirect !== 'undefined') {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event' : 'redirect',
+    });
+    setTimeout(function(){
+      window.location.replace(redirect); }, 1000);
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event' : 'modulesLoaded',
+      });
+    };
+  </script>
