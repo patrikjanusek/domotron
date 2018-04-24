@@ -97,6 +97,7 @@
       </style>
     </div>
     <h1 id="info" style="text-align:center; font-size:16px; font-family:sans-serif; color:#666">Prebieha presmerovanie</h1>
+
     <script>
     function parse_query_string(query) {
       var vars = query.split("&");
@@ -120,24 +121,49 @@
 
     var query_string = location.search;
     var parsed_qs = parse_query_string(query_string.substring(1));
+    var redirect = parsed_qs.redirect;
+
+    // Redirect to target in 5s
+
+      var i = 5;
+      function startTimer() {
+          var countdownTimer = setInterval(function() {
+              console.log("Redirect to " + redirect + " in " + i);
+              i = i - 1;
+              if (i <= 0) {
+                  clearInterval(countdownTimer);
+              }
+          }, 1000);
+
+      }
+
+    startTimer();
+
+    setTimeout(function() {
+      if (typeof redirect !== 'undefined') {
+        window.location.replace(redirect);
+      } else {
+        window.location.replace("https://www.domotron.com");
+      }
+    }, 5000);
+
+    // Display fallback link after 10s
 
     setTimeout(function() {
       var h = document.getElementById('info');
       var div = document.getElementById('spinner');
-      var redirect = parsed_qs.redirect;
       var anchor = document.createElement('a');
       var anchorText = document.createTextNode("Ak ste neboli automaticky presmerovaní, kliknite tu.");
-        if (typeof redirect !== 'undefined') {
-        window.location.replace(redirect);
+      if (typeof redirect !== 'undefined') {
         anchor.setAttribute('href', redirect);
       } else {
-        window.location.replace("https://www.domotron.com");
         anchor.setAttribute('href', "https://www.domotron.com");
       }
       anchor.setAttribute('style', "display: block; text-decoration: none; color: #A2A2A2; text-align:center; font-size:16px; font-family:sans-serif");
       anchor.appendChild(anchorText);
       div.appendChild(anchor);
-    }, 3000);
+    }, 10000);
+
     </script>
   </div>
 </body>

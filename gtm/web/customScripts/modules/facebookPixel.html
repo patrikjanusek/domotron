@@ -37,16 +37,23 @@ src="https://www.facebook.com/tr?id=1023595821090228&ev=PageView&noscript=1"
 
 // Check if other modules are loaded and signal GTM
 
-var modulesLoaded = {{Modules - DataLayer Variable - Modules Loaded}};
-modulesLoaded++;
-window.dataLayer.push({
-  'modulesLoaded' : modulesLoaded
+window.modules = window.modules || [];
+window.modules.push({
+  'facebookPixel' : 'ok'
 });
 
-if (modulesLoaded == {{Modules - Constant - Modules Count}}) {
+if("{{Debuging - Variable - Debug Mode}}" == "true") {
+  console.log("[Domotron] " + "Module Loaded: " + "Facebook Pixel");
+}
+
+if (window.modules.length == {{Modules - Constant - Modules Count}}) {
+  window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     'event' : 'modulesLoaded'
   });
+  if("{{Debuging - Variable - Debug Mode}}" == "true") {
+    console.log("[Domotron] " + "All Modules Loaded");
+  }
 };
 
 </script>

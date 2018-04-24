@@ -30,16 +30,23 @@ ga(function(tracker) {
 
 // Check if other modules are loaded and signal GTM
 
-var modulesLoaded = {{Modules - DataLayer Variable - Modules Loaded}};
-modulesLoaded++;
-window.dataLayer.push({
-  'modulesLoaded' : modulesLoaded
+window.modules = window.modules || [];
+window.modules.push({
+  'googleAnalytics' : 'ok'
 });
 
-if (modulesLoaded == {{Modules - Constant - Modules Count}}) {
+if("{{Debuging - Variable - Debug Mode}}" == "true") {
+  console.log("[Domotron] " + "Module Loaded: " + "Google Analytics");
+}
+
+if (window.modules.length == {{Modules - Constant - Modules Count}}) {
+  window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     'event' : 'modulesLoaded'
   });
+  if("{{Debuging - Variable - Debug Mode}}" == "true") {
+    console.log("[Domotron] " + "All Modules Loaded");
+  }
 };
 
 </script>

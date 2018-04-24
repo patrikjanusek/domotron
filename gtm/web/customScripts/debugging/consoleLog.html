@@ -1,6 +1,10 @@
 <script>
 var debugMode = {{Debuging - Variable - Debug Mode}};
-console.log("Container ID: " + {{Debuging - Variable - Container ID}});
-console.log("Container Version Number: " + {{Debuging - Variable - Container Version}});
-console.log(debugMode ? "Debug Mode: True" : "Debug Mode: False");
+console.log("[Domotron] " + "Container ID: " + {{Debuging - Variable - Container ID}});
+console.log("[Domotron] " + "Container Version Number: " + {{Debuging - Variable - Container Version}});
+console.log(debugMode ? "[Domotron] " + "Debug Mode: True" : "[Domotron] " + "Debug Mode: False");
+window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  'event' : 'gtmLoaded'
+});
 </script>
